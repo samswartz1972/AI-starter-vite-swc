@@ -18,19 +18,21 @@ const Home = () => {
   const [authModalTab, setAuthModalTab] = useState<"login" | "signup">("login");
 
   const handleLogin = async (username: string, password: string) => {
-    // For demo purposes, we'll provide two hardcoded logins
+    // For demo purposes, we'll provide hardcoded logins
     if (
       (username === "admin" && password === "admin123") ||
+      (username === "admin@example.com" && password === "admin123") ||
+      (username === "user" && password === "password123") ||
       (username === "user@example.com" && password === "password123")
     ) {
+      const isAdmin = username === "admin" || username === "admin@example.com";
       setIsLoggedIn(true);
       setUser({
-        name: username === "admin" ? "Admin User" : "Jane Smith",
-        role: username === "admin" ? "admin" : "user",
-        avatar:
-          username === "admin"
-            ? "https://api.dicebear.com/7.x/avataaars/svg?seed=admin"
-            : "https://api.dicebear.com/7.x/avataaars/svg?seed=jane",
+        name: isAdmin ? "Admin User" : "Jane Smith",
+        role: isAdmin ? "admin" : "user",
+        avatar: isAdmin
+          ? "https://api.dicebear.com/7.x/avataaars/svg?seed=admin"
+          : "https://api.dicebear.com/7.x/avataaars/svg?seed=jane",
       });
       setShowAuthModal(false);
       return true;
@@ -142,12 +144,16 @@ const Home = () => {
                 >
                   Try Preview Mode
                 </button>
-                <button
-                  onClick={() => (window.location.href = "/download")}
-                  className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-3 rounded-md font-medium mt-4 sm:mt-0 sm:ml-4"
-                >
-                  Download Platform
-                </button>
+                <Link to="admin-login">
+                  <button className="bg-gray-800 text-white hover:bg-gray-700 px-6 py-3 rounded-md font-medium mt-4 sm:mt-0 sm:ml-4">
+                    Admin Login
+                  </button>
+                </Link>
+                <Link to="download">
+                  <button className="bg-gradient-to-r from-purple-600 to-blue-600 text-white hover:from-purple-700 hover:to-blue-700 px-6 py-3 rounded-md font-medium mt-4 sm:mt-0 sm:ml-4">
+                    Download Platform
+                  </button>
+                </Link>
               </div>
             </motion.div>
           </div>
@@ -168,22 +174,31 @@ const Home = () => {
               <h4 className="font-semibold mb-4">Features</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link to="social" className="text-gray-400 hover:text-white">
                     Social Feed
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="marketplace"
+                    className="text-gray-400 hover:text-white"
+                  >
                     Marketplace
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="ai-tools"
+                    className="text-gray-400 hover:text-white"
+                  >
                     AI Tools
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="messages"
+                    className="text-gray-400 hover:text-white"
+                  >
                     Messaging
                   </Link>
                 </li>
@@ -193,22 +208,25 @@ const Home = () => {
               <h4 className="font-semibold mb-4">Company</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="about-us"
+                    className="text-gray-400 hover:text-white"
+                  >
                     About Us
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link to="careers" className="text-gray-400 hover:text-white">
                     Careers
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link to="blog" className="text-gray-400 hover:text-white">
                     Blog
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link to="contact" className="text-gray-400 hover:text-white">
                     Contact
                   </Link>
                 </li>
@@ -218,17 +236,26 @@ const Home = () => {
               <h4 className="font-semibold mb-4">Legal</h4>
               <ul className="space-y-2">
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="terms-of-service"
+                    className="text-gray-400 hover:text-white"
+                  >
                     Terms of Service
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="privacy-policy"
+                    className="text-gray-400 hover:text-white"
+                  >
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link to="#" className="text-gray-400 hover:text-white">
+                  <Link
+                    to="cookie-policy"
+                    className="text-gray-400 hover:text-white"
+                  >
                     Cookie Policy
                   </Link>
                 </li>

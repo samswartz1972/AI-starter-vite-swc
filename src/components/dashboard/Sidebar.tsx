@@ -165,37 +165,37 @@ const Sidebar = ({
           <NavItem
             icon={Home}
             label="Dashboard"
-            path="/dashboard"
+            path="dashboard"
             active={activePage === "dashboard"}
           />
           <NavItem
             icon={Users}
             label="Social Feed"
-            path="/social"
+            path="social"
             active={activePage === "social"}
           />
           <NavItem
             icon={ShoppingBag}
             label="Marketplace"
-            path="/marketplace"
+            path="marketplace"
             active={activePage === "marketplace"}
           />
           <NavItem
             icon={Wand2}
             label="AI Tools"
-            path="/ai-tools"
+            path="ai-tools"
             active={activePage === "ai-tools"}
           />
           <NavItem
             icon={User}
             label="Profile"
-            path="/profile"
+            path="profile"
             active={activePage === "profile"}
           />
           <NavItem
             icon={MessageSquare}
             label="Messages"
-            path="/messages"
+            path="messages"
             active={activePage === "messages"}
           />
 
@@ -231,25 +231,25 @@ const Sidebar = ({
                     <NavItem
                       icon={BarChart3}
                       label="Content Moderation"
-                      path="/admin/content"
+                      path="admin/content"
                       active={activePage === "admin-content"}
                     />
                     <NavItem
                       icon={Users}
                       label="User Management"
-                      path="/admin/users"
+                      path="admin/users"
                       active={activePage === "admin-users"}
                     />
                     <NavItem
                       icon={Flag}
                       label="Reports"
-                      path="/admin/reports"
+                      path="admin/reports"
                       active={activePage === "admin-reports"}
                     />
                     <NavItem
                       icon={Settings}
                       label="Settings"
-                      path="/admin/settings"
+                      path="admin/settings"
                       active={activePage === "admin-settings"}
                     />
                   </CollapsibleContent>
@@ -262,7 +262,7 @@ const Sidebar = ({
 
       {/* Footer */}
       <div className="p-4 border-t mt-auto">
-        <NavItem icon={LogOut} label="Logout" path="/logout" />
+        <NavItem icon={LogOut} label="Logout" path="/" />
       </div>
     </div>
   );

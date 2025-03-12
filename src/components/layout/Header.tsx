@@ -69,17 +69,17 @@ const Header = ({
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
-          <Link to="/social" className="text-sm font-medium hover:text-primary">
+          <Link to="social" className="text-sm font-medium hover:text-primary">
             Social Feed
           </Link>
           <Link
-            to="/marketplace"
+            to="marketplace"
             className="text-sm font-medium hover:text-primary"
           >
             Marketplace
           </Link>
           <Link
-            to="/ai-tools"
+            to="ai-tools"
             className="text-sm font-medium hover:text-primary"
           >
             AI Tools
@@ -203,24 +203,27 @@ const Header = ({
                     </div>
                   </div>
                   <DropdownMenuItem asChild>
-                    <Link to="/profile" className="cursor-pointer">
+                    <Link to="profile" className="cursor-pointer">
                       <User className="mr-2 h-4 w-4" />
                       Profile
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/dashboard" className="cursor-pointer">
+                    <Link to="dashboard" className="cursor-pointer">
                       <ShoppingBag className="mr-2 h-4 w-4" />
                       Dashboard
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link to="/ai-tools" className="cursor-pointer">
+                    <Link to="ai-tools" className="cursor-pointer">
                       <Wand2 className="mr-2 h-4 w-4" />
                       AI Tools
                     </Link>
                   </DropdownMenuItem>
-                  <DropdownMenuItem className="text-red-500 cursor-pointer">
+                  <DropdownMenuItem
+                    className="text-red-500 cursor-pointer"
+                    onClick={() => (window.location.href = "/")}
+                  >
                     <LogIn className="mr-2 h-4 w-4" />
                     Logout
                   </DropdownMenuItem>
@@ -329,21 +332,21 @@ const Header = ({
         <div className="md:hidden">
           <div className="px-4 py-3 space-y-1 border-b">
             <Link
-              to="/social"
+              to="social"
               className="block py-2 px-3 rounded-md hover:bg-accent"
               onClick={toggleMobileMenu}
             >
               Social Feed
             </Link>
             <Link
-              to="/marketplace"
+              to="marketplace"
               className="block py-2 px-3 rounded-md hover:bg-accent"
               onClick={toggleMobileMenu}
             >
               Marketplace
             </Link>
             <Link
-              to="/ai-tools"
+              to="ai-tools"
               className="block py-2 px-3 rounded-md hover:bg-accent"
               onClick={toggleMobileMenu}
             >
